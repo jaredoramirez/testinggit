@@ -12,31 +12,40 @@ MongoClient.connect(
     const db = client.db("TodoApp");
 
     // db.collection("Todos")
-    //   .deleteMany({ text: "Eat lunch" })
+    //   .findOneAndUpdate(
+    //     {
+    //       _id: new ObjectID("5be64c9cc14083f3499ec2a7")
+    //     },
+    //     {
+    //       $set: {
+    //         completed: true
+    //       }
+    //     },
+    //     {
+    //       returnOriginal: false
+    //     }
+    //   )
     //   .then(result => {
     //     console.log(result);
-    //   });
-
-    // db.collection("Todos")
-    //   .deleteOne({ text: "Eat lunch" })
-    //   .then(result => {
-    //     console.log(result);
-    //   });
-
-    // db.collection("Todos")
-    //   .findOneAndDelete({ status: "new" })
-    //   .then(result => {
-    //     console.log(result);
-    //   });
-
-    // db.collection("Users")
-    //   .findOneAndDelete({ _id: new ObjectID("5be6474fc70da73b6f1c045a") })
-    //   .then(result => {
-    //     console.log(JSON.stringify(result, undefined, 2));
     //   });
 
     db.collection("Users")
-      .deleteMany({ name: "CHepe Ortega" })
+      .findOneAndUpdate(
+        {
+          _id: new ObjectID("5bb3c74a5b35870a1d55d46f")
+        },
+        {
+          $set: {
+            name: "Mis huevos peludos 2"
+          },
+          $inc: {
+            age: 50
+          }
+        },
+        {
+          returnOriginal: false
+        }
+      )
       .then(result => {
         console.log(result);
       });
